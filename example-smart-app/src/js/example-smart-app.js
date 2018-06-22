@@ -12,8 +12,6 @@
        
         var patient = smart.patient;
         var pt = patient.read();
-       
-
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -66,7 +64,6 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username=obj.username;
-        
           ret.resolve(p);
         });
       } else {
@@ -91,7 +88,6 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-     
     };
   }
 
@@ -136,7 +132,6 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
- 
   };
 
 })(window);
