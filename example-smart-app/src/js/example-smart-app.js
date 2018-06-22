@@ -34,8 +34,7 @@
           var obj = {};
           // retrieve username
           obj.username = smart.tokenResponse.username;
-          var email='';
-          obj.email=practitioner.name[0].given.join(' ');
+        
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -65,7 +64,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username=obj.username;
-          p.email=obj.email;
+       
           ret.resolve(p);
         });
       } else {
@@ -90,7 +89,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-      email:{value: ''},
+     
     };
   }
 
@@ -135,7 +134,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-    $('#email').html(p.email);
+ 
   };
 
 })(window);
