@@ -35,7 +35,7 @@
           // retrieve username
           obj.username = smart.tokenResponse.username;
           var email='';
-          obj.email=smart.tokenResponse.emailid;
+          obj.email=smart.tokenResponse.Practitioner.name;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
