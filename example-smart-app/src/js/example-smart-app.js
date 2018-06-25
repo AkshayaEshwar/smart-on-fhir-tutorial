@@ -6,7 +6,41 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
+      var webAuth = new auth0.WebAuth({
+           scope: 'openid profile'
+          });
+var userProfile;
 
+function getProfile() {
+  if (!userProfile) {
+    var accessToken = localStorage.getItem('access_token');
+
+    if (!accessToken) {
+      console.log('Access Token must exist to fetch profile');
+    }
+
+    webAuth.client.userInfo(accessToken, function(err, profile) {
+      if (profile) {
+        userProfile = profile;
+        displayProfile();
+      }
+    });
+  } else {
+    displayProfile();
+  }
+}
+
+function displayProfile() {
+  // display the profile
+  document.querySelector('#profile-view .nickname').innerHTML =
+    userProfile.nickname;
+    
+  document.querySelector(
+    '#profile-view .full-profile'
+  ).innerHTML = JSON.stringify(userProfile, null, 2);
+
+  document.querySelector('#profile-view img').src = userProfile.picture;
+}
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
        
@@ -34,7 +68,7 @@
           var obj = {};
           // retrieve username
           obj.username = smart.tokenResponse.username;
-         
+       
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
