@@ -32,7 +32,7 @@
           var lname = '';
           var obj = {};
           obj.username = smart.tokenResponse.username;
-          obj.nick = smart.tokenResponse.user_id;
+          obj.nick = smart.tokenResponse.client_id;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
