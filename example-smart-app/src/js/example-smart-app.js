@@ -61,7 +61,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          p.username=obj.username;
+          p.user=obj.username;
           ret.resolve(p);
         });
       } else {
@@ -129,7 +129,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
-    $('#username').html(p.username);
+    $('#username').html(p.user);
   };
 
 })(window);
