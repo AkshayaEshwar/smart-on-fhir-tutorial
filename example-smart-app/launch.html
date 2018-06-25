@@ -29,6 +29,9 @@
         'client_id': 'e34e88d7-e646-4688-bbfa-7a8ad310aa6b',
         'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
       });
+      FHIRquery.onload = function() {
+          console.log(smart.tokenResponse);
+    }
     </script>
     <div class="spinner">
       <div class="bounce1"></div>
