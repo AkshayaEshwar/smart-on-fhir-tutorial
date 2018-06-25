@@ -9,10 +9,6 @@
 
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
-        var obj = {};
-// retrieve username
-obj.username = smart.tokenResponse.username;
-
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -34,7 +30,9 @@ obj.username = smart.tokenResponse.username;
 
           var fname = '';
           var lname = '';
-
+          var obj = {};
+          // retrieve username
+          obj.username = smart.tokenResponse.username;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
