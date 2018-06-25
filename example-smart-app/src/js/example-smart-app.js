@@ -6,20 +6,7 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-     
-
-function displayProfile() {
-  // display the profile
-  document.querySelector('#profile-view .nickname').innerHTML =
-    userProfile.nickname;
-    
-  document.querySelector(
-    '#profile-view .full-profile'
-  ).innerHTML = JSON.stringify(userProfile, null, 2);
-
-  document.querySelector('#profile-view img').src = userProfile.picture;
-}
-    function onReady(smart)  {
+      function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
       
         var patient = smart.patient;
