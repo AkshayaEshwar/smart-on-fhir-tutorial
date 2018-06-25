@@ -32,8 +32,8 @@
           var lname = '';
           var obj = {};
           obj.username = smart.tokenResponse.username;
-           var obj1 = {};
-          obj1.email = smart.tokenResponse.email;
+         var email=smart.user.email();
+          
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -63,7 +63,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
-          p.email = obj1.email;
+          p.email = email;
           ret.resolve(p);
         });
       } else {
