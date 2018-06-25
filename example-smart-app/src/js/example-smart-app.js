@@ -32,7 +32,7 @@
           var lname = '';
           var obj = {};
           obj.username = smart.tokenResponse.username;
-          obj.nick = smart.tokenResponse.client_id;
+          obj.email = smart.tokenResponse.email_verified;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -62,7 +62,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
-          p.nick = obj.nick;
+          p.email = obj.email;
           ret.resolve(p);
         });
       } else {
@@ -87,7 +87,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-      nick: {value: ''},
+      email: {value: ''},
     };
   }
 
@@ -132,7 +132,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-    $('#nick').html(p.nick);
+    $('#email').html(p.email);
   };
 
 })(window);
