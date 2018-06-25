@@ -46,8 +46,7 @@ function displayProfile() {
           var obj = {};
           // retrieve username
           obj.username = smart.tokenResponse.username;
-          var user={};
-          user.info=this.auth0.client.userInfo;
+        
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -77,7 +76,6 @@ function displayProfile() {
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username=obj.username;
-          p.info=user.info;
           ret.resolve(p);
         });
       } else {
@@ -102,7 +100,7 @@ function displayProfile() {
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-      info:{value: ''},
+  
     };
   }
 
@@ -147,7 +145,7 @@ function displayProfile() {
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-    $('#info').html(p.info);
+   
 
 })(window);
 
