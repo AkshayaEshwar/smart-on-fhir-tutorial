@@ -132,7 +132,5 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-   
-
 })(window);
 
