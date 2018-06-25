@@ -31,8 +31,7 @@
           var fname = '';
           var lname = '';
           var obj = {};
-          obj.username=smart.tokenResponse.username;
-  
+          obj.username = smart.tokenResponse.username;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
