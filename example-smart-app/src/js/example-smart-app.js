@@ -6,29 +6,7 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-      var webAuth = new auth0.WebAuth({
-           scope: 'openid profile'
-          });
-var userProfile;
-
-function getProfile() {
-  if (!userProfile) {
-    var accessToken = localStorage.getItem('access_token');
-
-    if (!accessToken) {
-      console.log('Access Token must exist to fetch profile');
-    }
-
-    webAuth.client.userInfo(accessToken, function(err, profile) {
-      if (profile) {
-        userProfile = profile;
-        displayProfile();
-      }
-    });
-  } else {
-    displayProfile();
-  }
-}
+     
 
 function displayProfile() {
   // display the profile
@@ -43,7 +21,7 @@ function displayProfile() {
 }
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
-       
+      
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -68,7 +46,8 @@ function displayProfile() {
           var obj = {};
           // retrieve username
           obj.username = smart.tokenResponse.username;
-       
+          var user={};
+          user.info=this.auth0.client.userInfo;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
@@ -98,7 +77,7 @@ function displayProfile() {
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username=obj.username;
-        
+          p.info=user.info;
           ret.resolve(p);
         });
       } else {
@@ -123,7 +102,7 @@ function displayProfile() {
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-    
+      info:{value: ''},
     };
   }
 
@@ -168,7 +147,7 @@ function displayProfile() {
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-      };
+    $('#info').html(p.info);
 
 })(window);
 
