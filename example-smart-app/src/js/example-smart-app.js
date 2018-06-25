@@ -9,6 +9,10 @@
 
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
+        var obj = {};
+// retrieve username
+obj.username = smart.tokenResponse.username;
+
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -59,7 +63,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-
+          p.username=obj.username;
           ret.resolve(p);
         });
       } else {
@@ -83,6 +87,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      username: {value: ''},
     };
   }
 
@@ -126,6 +131,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    $('#username').html(p.username);
   };
 
 })(window);
