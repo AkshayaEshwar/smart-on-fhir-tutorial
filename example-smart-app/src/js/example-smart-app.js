@@ -6,11 +6,7 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-      var token=smart.tokenResponse.id_token;
-    function parseJwt (token) {
-           var decoded = jwt_decode(token);
-           console.log(decoded);
-        };
+      
     function onReady(smart)  {
     
       if (smart.hasOwnProperty('patient')) {
@@ -19,6 +15,7 @@
       //getting the token
       var token = smart.server.auth.token;
         var idtoken=smart.tokenResponse.id_token;
+         var decoded = jwt_decode(idtoken);
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -71,7 +68,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
-          p.url=idtoken;
+          p.url=decoded;
           ret.resolve(p);
         });
       } else {
