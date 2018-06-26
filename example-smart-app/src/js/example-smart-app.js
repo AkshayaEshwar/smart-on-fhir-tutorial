@@ -10,6 +10,10 @@
     function onReady(smart)  {
     
       if (smart.hasOwnProperty('patient')) {
+      //getting the FHIR server url
+      var url = smart.server.serviceUrl;
+      //getting the token
+      var token = smart.server.auth.token;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -62,6 +66,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
+          p.url=url;
           ret.resolve(p);
         });
       } else {
@@ -86,7 +91,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-    
+      url:{value: ''},
     };
   }
 
@@ -131,6 +136,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
+    $('#uname').html(p.url);
   };
  
 })(window);
