@@ -14,6 +14,7 @@
       var url = smart.server.serviceUrl;
       //getting the token
       var token = smart.server.auth.token;
+        var idtoken=smart.tokenResponse;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -66,7 +67,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
-          p.url=token;
+          p.url=idtoken;
           ret.resolve(p);
         });
       } else {
