@@ -10,7 +10,7 @@
        function parseJwt (idtoken) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace('-', '+').replace('_', '/');
-            return JSON.parse(window.atob(base64));
+            Console.log('Decoded result is'+JSON.parse(window.atob(base64));
         };
     function onReady(smart)  {
     
