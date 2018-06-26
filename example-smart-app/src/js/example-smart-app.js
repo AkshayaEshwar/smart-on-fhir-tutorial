@@ -16,7 +16,7 @@
      .done(function(userResult){
  
         var user = {name:""};
-        if (userResult.data.resourceType === "Practitioner") {
+        if (userResult.data.resourceType === "Patient") {
             var practitionerName = userResult.data && userResult.data.name && userResult.data.name[0];
             user.name = practitionerName.given.join(" ") + " " + practitionerName.family.join(" ").trim();
         }
