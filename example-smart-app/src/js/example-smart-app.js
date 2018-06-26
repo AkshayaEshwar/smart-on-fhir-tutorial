@@ -17,7 +17,7 @@
         var idtoken=smart.tokenResponse.id_token;
        
         var patient = smart.patient;
-        print patient;
+        Console.log(patient);
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
