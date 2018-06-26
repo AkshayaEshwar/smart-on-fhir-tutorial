@@ -14,7 +14,7 @@
       var url = smart.server.serviceUrl;
       //getting the token
       var token = smart.server.auth.token;
-        var idtoken=smart.tokenResponse;
+        var idtoken=smart.tokenResponse.id_token;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
