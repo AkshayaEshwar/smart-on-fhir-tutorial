@@ -8,20 +8,7 @@
     }
 
     function onReady(smart)  {
-      if(smart.hasOwnProperty('user')){
-        var user=smart.user;
-        var usr=user.read();
-        var uname='';
-         if (typeof user.name[0] !== 'undefined') {
-            uname = user.name[0].given.join(' ');
-           
-          }
-        var u=defaultuser();
-        u.name=uname;
-         ret.resolve(u);
-                  }else {
-        onError();
-      }
+    
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
@@ -146,6 +133,5 @@
     $('#username').html(p.username);
    
   };
- window.drawVisualization = function(u){
-  $('#name').html(u.name);};
+ 
 })(window);
