@@ -8,6 +8,15 @@
     }
 
     function onReady(smart)  {
+      if(smart.hasOwnProperty('user')){
+        var user=smart.user;
+        var usr=user.read();
+        var uname=usr.name;
+        var u=defaultuser();
+        u.name=uname;
+                  }else {
+        onError();
+      }
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
@@ -85,6 +94,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
+      name: {value: ''},
     };
   }
 
@@ -116,7 +126,7 @@
     }
   }
 
-  window.drawVisualization = function(p) {
+  window.drawVisualization = function(p,u){
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
@@ -129,6 +139,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
+    $('#name').html(u.name);
   };
 
 })(window);
