@@ -86,7 +86,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-      name: {value: ''},
+    
     };
   }
 
