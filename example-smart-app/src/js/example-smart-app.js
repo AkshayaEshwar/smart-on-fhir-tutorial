@@ -13,7 +13,7 @@
       //getting the FHIR server url
       var url = smart.server.serviceUrl;
       //getting the token
-      var token = smart.server.auth.token;
+      var token = smart.server.id.token;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
