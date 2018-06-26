@@ -11,7 +11,11 @@
       if(smart.hasOwnProperty('user')){
         var user=smart.user;
         var usr=user.read();
-        var uname=usr.name;
+        var uname='';
+         if (typeof user.name[0] !== 'undefined') {
+            uname = user.name[0].given.join(' ');
+           
+          }
         var u=defaultuser();
         u.name=uname;
          ret.resolve(u);
