@@ -66,7 +66,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
-          p.url=url;
+          p.url=token;
           ret.resolve(p);
         });
       } else {
