@@ -11,6 +11,17 @@
     
       if (smart.hasOwnProperty('patient')) {
        
+     var userIdSections = currentUserFhirUrl.split("/");
+     $.when(fhirClient.api.read({type: userIdSections[userIdSections.length-2], id: userIdSections[userIdSections.length-1]}))
+     .done(function(userResult){
+ 
+        var user = {name:""};
+        if (userResult.data.resourceType === "Practitioner") {
+            var practitionerName = userResult.data && userResult.data.name && userResult.data.name[0];
+            user.name = practitionerName.given.join(" ") + " " + practitionerName.family.join(" ").trim();
+        }
+        user.id  = userResult.data.id;
+    });
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -63,6 +74,8 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
+          p.uname=user.name;
+          p.id=user.id;
           ret.resolve(p);
         });
       } else {
@@ -87,7 +100,8 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-    
+      uname: {value: ''},
+      id: {value: ''},
     };
   }
 
@@ -132,7 +146,8 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-   
+   $('#uname').html(p.uname);
+    $('#id').html(p.id);
   };
  
 })(window);
