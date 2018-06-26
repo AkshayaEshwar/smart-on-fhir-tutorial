@@ -15,10 +15,6 @@
       //getting the token
       var token = smart.server.auth.token;
         var idtoken=smart.tokenResponse.id_token;
-        import jwt_decode from 'jwt-decode';
-        var decoded = jwt_decode(idtoken);
-        var sub=console.log(decoded);
-        var name=smart.tokenResponse.name;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -72,8 +68,6 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
           p.url=idtoken;
-          p.sub=sub;
-          p.name=name;
           ret.resolve(p);
         });
       } else {
@@ -99,8 +93,7 @@
       hdl: {value: ''},
       username: {value: ''},
       url:{value: ''},
-      sub:{value: ''},
-      name:{value: ''},
+     
     };
   }
 
@@ -146,8 +139,7 @@
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
     $('#uname').html(p.url);
-    $('#sub').html(p.sub);
-    $('#name').html(p.name);
+    
   };
  
 })(window);
