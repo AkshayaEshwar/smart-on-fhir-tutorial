@@ -6,12 +6,7 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-       var idtoken=smart.tokenResponse.id_token;
-       function parseJwt (idtoken) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace('-', '+').replace('_', '/');
-            Console.log('Decoded result is'+JSON.parse(window.atob(base64));
-        };
+     
     function onReady(smart)  {
     
       if (smart.hasOwnProperty('patient')) {
@@ -19,7 +14,7 @@
       var url = smart.server.serviceUrl;
       //getting the token
       var token = smart.server.auth.token;
-       
+      var idtoken=smart.tokenResponse.id_token;
 
         var patient = smart.patient;
        
