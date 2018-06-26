@@ -17,7 +17,7 @@
         var idtoken=smart.tokenResponse.id_token;
        
         var patient = smart.patient;
-        Console.log(patient);
+       
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -38,6 +38,7 @@
 
           var fname = '';
           var lname = '';
+           Console.log(patient);
           var obj = {};
           obj.username = smart.tokenResponse.username;
           if (typeof patient.name[0] !== 'undefined') {
