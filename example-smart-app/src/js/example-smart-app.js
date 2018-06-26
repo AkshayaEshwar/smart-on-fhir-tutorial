@@ -38,7 +38,6 @@
 
           var fname = '';
           var lname = '';
-           Console.log(patient);
           var obj = {};
           obj.username = smart.tokenResponse.username;
           if (typeof patient.name[0] !== 'undefined') {
