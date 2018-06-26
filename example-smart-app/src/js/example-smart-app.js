@@ -10,6 +10,8 @@
     function onReady(smart)  {
     
       if (smart.hasOwnProperty('patient')) {
+        var user=smart.user.read();
+        var uname=user.name[0].given.join(' ');
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -50,7 +52,7 @@
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
-
+          p.uname=uname;
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
           }
@@ -86,7 +88,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-    
+      uname: {value: ''},
     };
   }
 
@@ -131,7 +133,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-   
+    $('#uname').html(p.uname);
   };
  
 })(window);
