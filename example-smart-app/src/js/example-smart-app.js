@@ -15,10 +15,9 @@
       //getting the token
       var token = smart.server.auth.token;
         var idtoken=smart.tokenResponse.id_token;
-        var jwt_decode = require('jwt-decode');
+        import jwt_decode from 'jwt-decode';
         var decoded = jwt_decode(idtoken);
-         
-        var sub=decoded.tokenResponse.sub;
+        var sub=decoded.sub;
         var name=smart.tokenResponse.name;
         var patient = smart.patient;
         var pt = patient.read();
