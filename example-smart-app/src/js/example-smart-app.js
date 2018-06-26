@@ -14,6 +14,7 @@
         var uname=usr.name;
         var u=defaultuser();
         u.name=uname;
+         ret.resolve(u);
                   }else {
         onError();
       }
@@ -126,7 +127,7 @@
     }
   }
 
-  window.drawVisualization = function(p,u){
+  window.drawVisualization = function(p){
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
@@ -139,7 +140,8 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-    $('#name').html(u.name);
+   
   };
-
+ window.drawVisualization = function(u){
+  $('#name').html(u.name);};
 })(window);
