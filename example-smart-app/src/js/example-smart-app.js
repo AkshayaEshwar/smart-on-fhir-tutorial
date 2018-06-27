@@ -6,16 +6,20 @@
       console.log('Loading error', arguments);
       ret.reject();
     }
-     
     function onReady(smart)  {
-    
       if (smart.hasOwnProperty('patient')) {
       //getting the FHIR server url
       var url = smart.server.serviceUrl;
-      //getting the token
+      //getting the access token
       var token = smart.server.auth.token;
-      var idtoken=smart.tokenResponse.id_token;
-
+        //getting the id token(response token)
+       var idtoken=smart.tokenResponse.id_token;
+       var array = idtoken.split('.');
+       var header = window.atob(array[0]);
+       var payload = window.atob(array[1]);
+       var res = header + payload;
+       var obj1 = JSON.parse(payload);
+      // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile;
         var patient = smart.patient;
        
         var pt = patient.read();
@@ -69,7 +73,7 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = obj.username;
-          p.url=idtoken;
+          p.name=obj1.name;
           ret.resolve(p);
         });
       } else {
@@ -94,7 +98,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       username: {value: ''},
-      url:{value: ''},
+      name:{value: ''},
      
     };
   }
@@ -140,7 +144,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
-    $('#uname').html(p.url);
+    $('#name').html(p.name);
     
   };
  
