@@ -14,7 +14,7 @@
       var token = smart.server.auth.token;
         //getting the id token(response token)
        var idtoken=smart.tokenResponse.id_token;
-        var accesstoken=smart.server.access.token;
+       var accesstoken=smart.server.access.token;
        var array = idtoken.split('.');
        var header = window.atob(array[0]);
        var payload = window.atob(array[1]);
