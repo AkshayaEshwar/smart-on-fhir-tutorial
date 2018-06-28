@@ -20,9 +20,26 @@
        var payload = window.atob(array[1]);
        var res = header + payload;
        var obj1 = JSON.parse(payload);
-      // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile;
+      // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
+          var data = null;
+           var info;
+           var xhr = new XMLHttpRequest();
+           xhr.withCredentials = true;
+
+           xhr.addEventListener("readystatechange", function () {
+               if (this.readyState === 4) {
+                   var practitioner=xhr.responseText;
+                   info=JSON.parse(practitioner);
+               }
+           });
+
+           xhr.open("GET", "https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/4464007");
+           xhr.setRequestHeader("header", header);
+           xhr.setRequestHeader("Authorization", "Bearer" +payload);
+           xhr.send(data);
+        
+        
         var patient = smart.patient;
-       
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
@@ -76,6 +93,7 @@
           p.username = token;
           p.name=obj1.name;
           p.access=idtoken;
+          p.prac=info.name;
           ret.resolve(p);
         });
       } else {
@@ -102,6 +120,7 @@
       username: {value: ''},
       name:{value: ''},
       access:{value: ''},
+      practitioner:{value: ''},
     };
   }
 
@@ -148,6 +167,7 @@
     $('#username').html(p.username);
     $('#name').html(p.name);
     $('#access').html(p.access);
+    $('#practitioner').html(p.prac);
   };
  
 })(window);
