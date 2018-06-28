@@ -75,7 +75,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = token;
           p.name=obj1.name;
-         // p.access=accesstoken;
+          p.access=idtoken;
           ret.resolve(p);
         });
       } else {
@@ -101,7 +101,7 @@
       hdl: {value: ''},
       username: {value: ''},
       name:{value: ''},
-     // access:{value: ''},
+      access:{value: ''},
     };
   }
 
@@ -147,7 +147,7 @@
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
     $('#name').html(p.name);
-  //  $('#access').html(p.access);
+    $('#access').html(p.access);
   };
  
 })(window);
