@@ -14,7 +14,7 @@
       var token = smart.server.auth.token;
         //getting the id token(response token)
        var idtoken=smart.tokenResponse.id_token;
-       var accesstoken=smart.server.access.token;
+       //var accesstoken=smart.server.access.token;
        var array = idtoken.split('.');
        var header = window.atob(array[0]);
        var payload = window.atob(array[1]);
@@ -75,7 +75,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = token;
           p.name=obj1.name;
-          p.access=accesstoken;
+         // p.access=accesstoken;
           ret.resolve(p);
         });
       } else {
@@ -101,7 +101,7 @@
       hdl: {value: ''},
       username: {value: ''},
       name:{value: ''},
-      access:{value: ''},
+     // access:{value: ''},
     };
   }
 
@@ -147,7 +147,7 @@
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
     $('#name').html(p.name);
-    $('#access').html(p.access);
+  //  $('#access').html(p.access);
   };
  
 })(window);
