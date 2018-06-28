@@ -21,8 +21,7 @@
        var res = header + payload;
        var obj1 = JSON.parse(payload);
       // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
-          
-        
+         
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -104,7 +103,6 @@
       username: {value: ''},
       name:{value: ''},
       access:{value: ''},
-  
     };
   }
 
@@ -151,7 +149,6 @@
     $('#username').html(p.username);
     $('#name').html(p.name);
     $('#access').html(p.access);
-    
   };
  
 })(window);
