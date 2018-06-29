@@ -39,7 +39,7 @@
         }
           var id='';
         $.ajax(settings).done(function (response) {
-           var value=JSON.parse(response);
+           var value=response;
           id=value.id;
         });
         var patient = smart.patient;
