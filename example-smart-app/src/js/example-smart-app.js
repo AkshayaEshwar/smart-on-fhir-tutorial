@@ -21,7 +21,7 @@
        var res = header + payload;
        var obj1 = JSON.parse(payload);
       // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
-       
+       var practitionerid=obj1.fhirUser.id;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -75,6 +75,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = token;
           p.name=obj1.name;
+          p.practitionerid=practitionerid;
           ret.resolve(p);
         });
       } else {
@@ -100,6 +101,7 @@
       hdl: {value: ''},
       username: {value: ''},
       name:{value: ''},
+      practitionerid:{value: ''},
     };
   }
 
@@ -145,6 +147,7 @@
     $('#hdl').html(p.hdl);
     $('#username').html(p.username);
     $('#name').html(p.name);
+    $('#practitionerid').html(p.practitionerid);
   };
  
 })(window);
