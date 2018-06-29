@@ -8,6 +8,7 @@
     }
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
+        var user=user.read();
       //getting the FHIR server url
       var url = smart.server.serviceUrl;
       //getting the access token
@@ -96,7 +97,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.name=obj1.name;
           p.id=id;
-          p.email=obj1.email;
+          p.email=user.telecom.value;
           ret.resolve(p);
         });
       } else {
