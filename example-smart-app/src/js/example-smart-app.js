@@ -21,7 +21,7 @@
        var res = header + payload;
        var obj1 = JSON.parse(payload);
       // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
-       var practitionerid=obj1.fhirUser.id;
+       var practitionerid=obj1.fhirUser;
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
