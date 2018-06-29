@@ -32,7 +32,7 @@
           "method": "GET",
           "headers": {
             "Accept": "application/json+fhir",
-            //"header": arr[0],
+            "header": arr[0],
             "Authorization":text,
             "Cache-Control": "no-cache",
           
