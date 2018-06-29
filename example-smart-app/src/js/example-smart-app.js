@@ -23,6 +23,7 @@
        var payload = window.atob(array[1]);
        var res = header + payload;
        var obj1 = JSON.parse(payload);
+        var text="Bearer"+arr[1];
     // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
         var settings = {
           "async": true,
@@ -32,7 +33,7 @@
           "headers": {
             "Accept": "application/json+fhir",
             "header": arr[0],
-            "Authorization":"Bearer"+arr[1],
+            "Authorization":text,
             "Cache-Control": "no-cache",
           
           }
