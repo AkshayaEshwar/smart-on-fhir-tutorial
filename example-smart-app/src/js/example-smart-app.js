@@ -21,7 +21,26 @@
        var res = header + payload;
        var obj1 = JSON.parse(payload);
       // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
-         
+         var data = null;
+         var response=null;
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    response=this.responseText;
+  }
+});
+
+xhr.open("GET", +obj1.fhirUser);
+xhr.setRequestHeader("Accept", "application/json+fhir");
+xhr.setRequestHeader("header",+header);
+xhr.setRequestHeader("Authorization", "Bearer" +payload);
+xhr.setRequestHeader("Cache-Control", "no-cache");
+//xhr.setRequestHeader("Postman-Token", "ee545b3f-f846-4837-a476-8f003ce7d751");
+
+xhr.send(data);
+       
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -75,7 +94,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.username = token;
           p.name=obj1.name;
-          p.access=idtoken;
+          p.access=response;
          
           ret.resolve(p);
         });
