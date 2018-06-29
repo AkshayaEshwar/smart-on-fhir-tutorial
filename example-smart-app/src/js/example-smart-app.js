@@ -20,9 +20,24 @@
        var payload = window.atob(array[1]);
        var res = header + payload;
        var obj1 = JSON.parse(payload);
-      
-      // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
-
+    // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": obj1.fhirUser,
+          "method": "GET",
+          "headers": {
+            "Accept": "application/json+fhir",
+            "header": header,
+            "Authorization":"Bearer" + payload,
+            "Cache-Control": "no-cache",
+          
+          }
+        }
+          var id='';
+        $.ajax(settings).done(function (response) {
+           id=response.id;
+        });
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
@@ -77,6 +92,7 @@
           p.username = token;
           p.name=obj1.name;
           p.practitionerid= obj1.fhirUser;
+          p.id=id;
           ret.resolve(p);
         });
       } else {
@@ -103,6 +119,7 @@
       username: {value: ''},
       name:{value: ''},
       practitionerid:{value: ''},
+      id:{value: ''},
     };
   }
 
@@ -149,6 +166,7 @@
     $('#username').html(p.username);
     $('#name').html(p.name);
     $('#practitionerid').html(p.practitionerid);
+    $('#id').html(p.id);
   };
  
 })(window);
