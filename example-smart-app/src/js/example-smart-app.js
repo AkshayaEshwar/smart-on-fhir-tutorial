@@ -32,7 +32,7 @@
           "headers": {
             "Accept": "application/json+fhir",
             "header": arr[0],
-            "Authorization":"Bearer" +arr[1],
+            "Authorization":"Bearer"+arr[1],
             "Cache-Control": "no-cache",
           
           }
