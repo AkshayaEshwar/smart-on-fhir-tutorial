@@ -13,8 +13,8 @@
       //getting the access token
       var token = smart.server.auth.token;
         var arr=token.split('.');
-        var head = window.atob(arr[0]);
-        var load = window.atob(arr[1]);
+        var head = arr[0];
+        var load = arr[1];
         //getting the id token(response token)
        var idtoken=smart.tokenResponse.id_token;
        //var accesstoken=smart.server.access.token;
@@ -25,25 +25,23 @@
        var obj1 = JSON.parse(payload);
         var text="Bearer"+token;
     // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
-        var settings = {
-          "async": true,
-          "crossDomain": true,
-          "url": obj1.fhirUser,
-          "method": "GET",
-          "headers": {
-            "Accept": "application/json+fhir",
-            "header": arr[0],
-            "Authorization":text,
-            "Cache-Control": "no-cache",
-          
-          }
-        }
-          var id='';
-        $.ajax(settings).done(function (response) {
-          console.log(response);
-          var value=response;
-          id=value.id;
-        });
+         var settings = {
+               "async": true,
+               "crossDomain": true,
+               "url": obj1.fhirUser,
+               "method": "GET",
+               "headers": {
+                   "Accept": "application/json+fhir",
+                   "header": head,
+                   "Authorization": "Bearer" +token,
+                   "Cache-Control": "no-cache",
+                  // "Postman-Token": "9f1488d2-1096-4acf-b052-bb1721519dfd"
+               }
+           }
+
+           $.ajax(settings).done(function (response) {
+               console.log(response);
+           });
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
