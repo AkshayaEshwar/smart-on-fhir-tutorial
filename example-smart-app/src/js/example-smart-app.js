@@ -97,7 +97,7 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.name=obj1.name;
           p.id=id;
-          p.email=user.telecom.value;
+          p.email=obj1.email;
           ret.resolve(p);
         });
       } else {
