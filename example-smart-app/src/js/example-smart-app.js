@@ -23,7 +23,7 @@
        var payload = window.atob(array[1]);
        var res = header + payload;
        var obj1 = JSON.parse(payload);
-        var text="Bearer"+token;
+        var text="Bearer "+token;
     // document.getElementById("demo").innerHTML = obj1.name + ", " + obj.sub + "," + obj.profile
          var settings = {
                "async": true,
@@ -33,7 +33,7 @@
                "headers": {
                    "Accept": "application/json+fhir",
                    "header": head,
-                   "Authorization": "Bearer" +token,
+                   "Authorization": text,
                    "Cache-Control": "no-cache",
                   // "Postman-Token": "9f1488d2-1096-4acf-b052-bb1721519dfd"
                }
