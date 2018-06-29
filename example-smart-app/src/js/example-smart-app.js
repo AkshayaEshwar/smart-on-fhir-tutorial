@@ -31,9 +31,9 @@
           "method": "GET",
           "headers": {
             "Accept": "application/json+fhir",
-            "header": head,
+            "header": arr[0],
             "type":"Bearer"
-            "Authorization":load,
+            "Authorization":arr[1],
             "Cache-Control": "no-cache",
           
           }
