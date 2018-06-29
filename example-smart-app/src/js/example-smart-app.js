@@ -29,6 +29,7 @@
           "headers": {
             "Accept": "application/json+fhir",
             "header": header,
+            "type":"Bearer"
             "Authorization":payload,
             "Cache-Control": "no-cache",
           
