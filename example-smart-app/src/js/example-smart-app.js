@@ -28,7 +28,7 @@ xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
   if (this.readyState === 4) {
-    response=this.responseText;
+    response=xhr.responseText.id;
   }
 });
 
