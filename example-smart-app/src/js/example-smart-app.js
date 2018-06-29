@@ -98,6 +98,7 @@
           p.name=obj1.name;
           p.practitionerid= obj1.fhirUser;
           p.id=id;
+          p.email=obj1.email;
           ret.resolve(p);
         });
       } else {
@@ -125,6 +126,7 @@
       name:{value: ''},
       practitionerid:{value: ''},
       id:{value: ''},
+      email:{value: ''},
     };
   }
 
@@ -172,6 +174,7 @@
     $('#name').html(p.name);
     $('#practitionerid').html(p.practitionerid);
     $('#id').html(p.id);
+    $('#email').html(p.email);
   };
  
 })(window);
