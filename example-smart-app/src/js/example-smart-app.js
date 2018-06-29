@@ -95,7 +95,6 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.name=obj1.name;
-          p.practitionerid= obj1.fhirUser;
           p.id=id;
           p.email=obj1.email;
           ret.resolve(p);
@@ -122,7 +121,6 @@
       ldl: {value: ''},
       hdl: {value: ''},
       name:{value: ''},
-      practitionerid:{value: ''},
       id:{value: ''},
       email:{value: ''},
     };
@@ -169,7 +167,6 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#name').html(p.name);
-    $('#practitionerid').html(p.practitionerid);
     $('#id').html(p.id);
     $('#email').html(p.email);
   };
