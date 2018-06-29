@@ -12,6 +12,9 @@
       var url = smart.server.serviceUrl;
       //getting the access token
       var token = smart.server.auth.token;
+        var arr=token.split('.');
+        var head = window.atob(arr[0]);
+        var load = window.atob(arr[1]);
         //getting the id token(response token)
        var idtoken=smart.tokenResponse.id_token;
        //var accesstoken=smart.server.access.token;
@@ -24,13 +27,13 @@
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": "obj1.fhirUser",
+          "url": obj1.fhirUser,
           "method": "GET",
           "headers": {
             "Accept": "application/json+fhir",
-            "header": "header",
+            "header": head,
             "type":"Bearer"
-            "Authorization":"payload",
+            "Authorization":load,
             "Cache-Control": "no-cache",
           
           }
