@@ -38,9 +38,10 @@
                   // "Postman-Token": "9f1488d2-1096-4acf-b052-bb1721519dfd"
                }
            }
-
+           var id;
            $.ajax(settings).done(function (response) {
                console.log(response);
+             id=response.id;
            });
         var patient = smart.patient;
         var pt = patient.read();
