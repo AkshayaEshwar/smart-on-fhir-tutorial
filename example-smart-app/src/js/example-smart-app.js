@@ -94,7 +94,6 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-          p.username = token;
           p.name=obj1.name;
           p.practitionerid= obj1.fhirUser;
           p.id=id;
@@ -122,7 +121,6 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      username: {value: ''},
       name:{value: ''},
       practitionerid:{value: ''},
       id:{value: ''},
@@ -170,7 +168,6 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
-    $('#username').html(p.username);
     $('#name').html(p.name);
     $('#practitionerid').html(p.practitionerid);
     $('#id').html(p.id);
