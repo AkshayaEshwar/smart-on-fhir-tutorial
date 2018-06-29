@@ -24,13 +24,13 @@
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": obj1.fhirUser,
+          "url": "obj1.fhirUser",
           "method": "GET",
           "headers": {
             "Accept": "application/json+fhir",
-            "header": header,
+            "header": "header",
             "type":"Bearer"
-            "Authorization":payload,
+            "Authorization":"payload",
             "Cache-Control": "no-cache",
           
           }
