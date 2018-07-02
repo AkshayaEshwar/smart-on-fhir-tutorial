@@ -8,7 +8,7 @@
     }
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
-        var user=user.read();
+       // var user=user.read();
       //getting the FHIR server url
       var url = smart.server.serviceUrl;
       //getting the access token
