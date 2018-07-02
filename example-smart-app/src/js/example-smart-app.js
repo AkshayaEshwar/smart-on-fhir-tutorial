@@ -42,6 +42,7 @@
            var id;
            $.ajax(settings).done(function (response) {
                console.log(response);
+             console.log(smart.tokenResponse);
              id=response.id;
            });
         var patient = smart.patient;
